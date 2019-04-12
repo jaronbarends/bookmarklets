@@ -56,94 +56,44 @@
 <body>
 	<div class="wrapper">
 		<h1>Bookmarklets</h1>
+		<p>
+			Drag any of the links you want to use to your browser's bookmark bar.
+		</p>
 
 		<h2>QR code for current page</h2>
 		<P>
 			<a href="javascript:void%20function(){var%20e=document.createElement(%22div%22),t=function(){var%20t=%22https://chart.googleapis.com/chart%3Fchs=250x250%26cht=qr%26chl=%22+encodeURIComponent(document.location.href),n=e.style,o=document.createElement(%22img%22);o.src=t,n.position=%22fixed%22,n.zIndex=1e6,n.width=%22100%25%22,n.height=%22100%25%22,n.top=0,n.left=0,n.textAlign=%22center%22,n.backgroundColor=%22rgba(0,0,0,0.9)%22,o.style.marginTop=%22100px%22,o.style.width=%22auto%22,o.style.height=%22auto%22,e.appendChild(o),document.body.appendChild(e)},n=function(){document.body.removeChild(e)},o=function(e){27===e.keyCode%26%26n()},d=function(){t(),e.addEventListener(%22click%22,n),window.addEventListener(%22keyup%22,o)};d()}();">QR code</a>
-		</p>
-		<p>
-			Shows a lightbox with a QR code for the current page's url.
+			Show a lightbox with a QR code for the current page's url.
 		</p>
 
-		<h2>Switch localhost to e....</h2>
+		<h2>Randomize url</h2>
 		<p>
-			in the bookmarklet, find "c=%22e1613%22" and change e1613 to your computer number
+			Add random parameter to query string (or change it)
 		</p>
 		<P>
-			<a href="javascript:void%20function(){var%20o,e=document.location.href,c=%22e1613%22,n=e.indexOf(c)%3E-1,t=%22localhost%22,a=c;n%26%26(a=t,t=c),o=e.replace(t,a),document.location.href=o}();">localhost <> e1613</a>
+			<a href='javascript:void function(){var i=document.location.href,o=i.indexOf("%3F"),n=i.indexOf("%23"),t="",a=[];if(n>-1){var e=i.split("%23");i=e[0],t="%23"+e[1]}o>-1%26%26(a=i.split("%3F"),i=a[0],a=a[1].split("%26")),a.forEach(function(i,o){"randomize"===i.split("=")[0]%26%26a.splice(o,1)}),a.push("randomize="+Math.floor(1e4*Math.random())),i+="%3F"+a.join("%26")+t,window.location.href=i}();'>randomizeUrl</a>
 		</p>
-		<p>
-			Shows a lightbox with a QR code for the current page's url.
+
+		<h2>Kittify</h2>
+		<P>
+			<a href="javascript:void%20function(){const%20a=document.querySelectorAll(%22img%22),b=new%20Map,c=function(a){var%20c=Math.round;const%20d=%22IMG%22===a.tagName%3Fa.width:a.offsetWidth,e=%22IMG%22===a.tagName%3Fa.height:a.offsetHeight;let%20f;let%20g=d,h=e;for(;b.get(`${g}x${h}`);)g+=2,h=c(g/(d/e));return%20b.set(`${g}x${h}`,!0),f=`https://placekitten.com/${g}/${h}`,f};a.forEach(a=%3E{const%20b=a.width,d=a.height,e=c(a);e%26%26(a.removeAttribute(%22srcset%22),a.src=e,a.width=b,a.height=d)});const%20d=document.querySelectorAll(%22[style*='url('][style*='background-image']%22);d.forEach(a=%3E{const%20b=c(a);b%26%26(a.style.backgroundImage=`url(${b})`)})}();">Kittify</a>
+			Change all images on a web page to images of kittens
+		</p>
+
+		<h2>Remove AEM author layer</h2>
+		<P>
+			<a href='javascript:void function(){document.getElementById("OverlayWrapper").style.display="none"}();'>Hide Author Layer</a>
+			Remove the author layer in AEM so you can inspect elements in the author environment
 		</p>
 
 		<h2>Fill form with random content</h2>
 		<P>
 			<a href="javascript:(function(){var%20inputs=document.querySelectorAll('input');var%20contains=function(str,what){return(str.indexOf(what)%3E%20-1);};for(var%20i=0;len=inputs.length,i%3Clen;i++){var%20input=inputs[i];var%20tp=input.type;if(tp%20!=='hidden'%20%26%26%20tp%20!='submit'){var%20nm=input.name.toLowerCase(),val;if(tp==='email'%20||%20contains(nm,'mail')){val='iemand%40aghjdkaghjakghjkahgjkahkg.nl';}else%20if(contains(nm,'postcode')){val='1234AB';}else%20if(contains(nm,'phone')||%20contains(nm,'mobile')){val='0612345678';}else%20if(nm.indexOf('number')%3E%20-1){val=12;}else%20if(tp==='password'){val='Aa-12-Bbcc';}else{val='ietsiets';}input.value=val;}}})();">formRandomizer</a>
-		</p>
-		<p>
 			Fill all form fields with a random value (with some context awareness like email, numbers).
 		</p>
 
-		<h2>Urentool UI</h2>
-		<P>
-			<a href="javascript:(function(){(function($){var%20$form=$('form[name=%22frm_urenregels%22]'),startTime=[9,00];var%20addCss=function(){var%20css='html{font-size:62.5%25}body{font-size:1.2rem;line-height:1.5}div%23container{margin:0%20auto;max-width:1500px}div%23main%20span.footer,div%23main%20span.header,div%23main%20table.urendag{width:100%25;max-width:1140px}select,td{-moz-box-sizing:border-box;box-sizing:border-box}div%23head{float:none;overflow:hidden;margin:0%200%2020px;height:auto}div%23head%20div%23menu{overflow:hidden;float:none;border-top:0;border-right:0;width:auto;height:auto}div%23head%20div%23menu%20ul%23nav{float:none;width:auto;background:0%200}div.buttons_top_right{margin:48px%205px%200}div%23left{clear:none;margin:0%2020px}div%23agenda,div%23meldingen{margin:0%200%2020px;width:auto}input:focus,select:focus{box-shadow:0%200%203px%20%2339f}div%23container2{overflow:hidden;margin-right:20px;width:auto}div%23main{display:block;float:none;background:0%200;margin:0;width:auto;border:0;font:inherit}div%23main%20span.header{overflow:hidden;display:block;float:none;padding:10px%200;height:auto;background:0%200}div%23main%20span.header%20h1{display:inline-block;font-size:inherit;margin:0%201em%200%202.5em;width:auto;height:auto}div%23main%20span.header%20select,div%23mainbreed%20span.header%20select{float:none;margin:0;width:auto;height:auto;font:inherit}div%23main%20table.urendag{clear:none;float:none;border:1px%20solid%20%23C3C5C6;border-top:0;font-size:1.2rem}div%23main%20.header+table.urendag{border-top:1px%20solid%20%23C3C5C6}div%23main%20table.even,div%23main%20table.oneven{background:0%200}div%23main%20form%20.test:nth-child(2n)%20table,div%23main%20form%20table:nth-child(2n+1){background:%23f5f5f5}div%23main%20form%20.test:nth-child(2n+1)%20table{background:0%200}td{background:none!important}div%23main%20table.urendag%20tr{height:auto;line-height:inherit}div%23main%20table.urendag%20td{width:auto;height:auto;padding:5px!important;line-height:inherit}div%23main%20table.urendag%20tr:first-child%20td{padding-top:8px!important}div%23main%20table.urendag%20tr:last-child%20td{padding-bottom:8px!important}div%23main%20table.urendag%20td.nummer{font-size:inherit;padding:5px;width:2em}div%23main%20table.urendag%20td.eerste,div%23main%20table.urendag%20td.tweede{height:auto;line-height:inherit;vertical-align:auto}div%23main%20table.urendag%20td.nummer+td.eerste{width:30em}td%20div.projectnaam_en_urensoort{width:auto}div.bedrijf_pulldown_replacement,td%20div.projectnaam{margin:0%205px%200%200;padding:0;width:45%25;line-height:inherit}td%20div.urensoort{float:none;margin:0;padding:0;width:auto;line-height:inherit}td%20div.eerste_regel_rechts{width:auto}div%23main%20table.urendag%20input.omschrijving,div.uren_omschrijving,td%20div.urenfase,td%20div.urenfase2{-moz-box-sizing:border-box;box-sizing:border-box;overflow:visible;margin:0%205px%200%200;padding:5px;width:20em;line-height:inherit}td%20div.urenfase,td%20div.urenfase2{margin-right:16px}td%20div.urenfase2{padding:0}div%23main%20table.urendag%20tr+tr%20td:first-child+td{width:21em}div.uren_van_tot{float:left;margin:0;width:16em}div%23main%20table.urendag%20td.nummer.nietvolledig{color:%23404040}div%23main%20table.urendag%20select{width:90%25;padding:5px;max-width:20em;font-size:inherit}div%23main%20table.urendag%20select.werksoort{margin:0;width:52%25;font-size:inherit}option{padding:3px}.urenfase2%20span{display:block}div%23main%20table.urendag%20select.projectfase{width:100%25;font-size:inherit}td%20div.voorcalculatie{margin:0;height:auto;width:auto;color:%23999}.tweede.rechts{text-align:left}.verwijderknopregel{display:block;float:right;margin:0}.verwijderknopregel%20a,a[title=%22Copy%20regel%22],a[title=%22Edit%20regel%22],td.verwijderknop%20a{display:block;float:right;margin:0%200%200%205px!important;padding:5px}.verwijderknopregel%20a,td.verwijderknop%20a{border:1px%20solid%20transparent;background:0%200}.verwijderknopregel%20a:focus,.verwijderknopregel%20a:hover,td.verwijderknop%20a:focus,td.verwijderknop%20a:hover{border:1px%20solid%20%23e63200;background:%23e63200}a[title=%22Copy%20regel%22]{border:1px%20solid%20transparent}a[title=%22Copy%20regel%22]:focus,a[title=%22Copy%20regel%22]:hover{border:1px%20solid%20%23e67731}a[title=%22Edit%20regel%22]{border:1px%20solid%20transparent;background:0%200}a[title=%22Edit%20regel%22]:focus,a[title=%22Edit%20regel%22]:hover{border:1px%20solid%20%23090;background:%23090}td.verwijderknop%20a.bekijk_details{border:0;background:0%200}a[title=%22Copy%20regel%22]%20img,a[title=%22Edit%20regel%22]%20img{margin:0}div%23main%20table.urendag%20input.project{font-size:inherit;height:auto;padding:5px;width:88%25}div%23main%20table.urendag%20input.project+a{display:inline-block}.fav_pulldown{position:static;margin:0%200%200%205px}div%23main%20table.urendag%20input.omschrijving{height:auto;font:inherit}td%20input{padding:5px}div%23main%20table.urendag%20input.tijd,div%23main%20table.urendag%20input.tijdtotaal{height:auto;font-size:inherit}div%23main%20table.urendag%20.tweede.rechts%20input.tijd{border-color:%23eee;color:%23999}.urenregel_project{overflow:visible;float:none;margin:0;width:auto}.uren_omschrijving{overflow:visible;margin:0;width:auto}div%23main%20span.footer{display:block;float:none;overflow:hidden;border:0;padding:10px%200;height:auto;background:0%200}div%23main%20span.afronden,div%23main%20span.dagtotaal,div%23main%20span.opslaan,div%23main%20span.weektotaal{display:block;margin:0%20.5em;padding:5px%200;width:auto;height:auto;font-size:inherit;line-height:inherit}div%23main%20span.afronden,div%23main%20span.opslaan{padding:5px}.afronden,.opslaan,input[type=button]{cursor:pointer}div%23main%20span.afronden:focus,div%23main%20span.afronden:hover,div%23main%20span.opslaan:focus,div%23main%20span.opslaan:hover,div%23main%20table%20input[type=button]:focus,div%23main%20table%20input[type=button]:hover{background:%230072bc}div%23main%20span.afronden%20input{vertical-align:middle}div%23main%20span.opslaan[title=%22Nieuwe%20urenregel%22]{background:0%200;color:%23f95808;text-decoration:underline}div%23main%20span.opslaan[title=%22Nieuwe%20urenregel%22]:focus,div%23main%20span.opslaan[title=%22Nieuwe%20urenregel%22]:hover{background:0%200;text-decoration:none}div%23main%20span.dagtotaal,div%23main%20span.weektotaal{color:%23999}div%23main%20span.dagtotaal%20span,div%23main%20span.weektotaal%20span{padding:0;background:0%200;color:%23404040}div%23main%20span.dagtotaal%20span{font-weight:700}div%23main%20table.even%20input,div%23main%20table.even%20select,div%23main%20table.even%20textarea%20div%23main%20table.oneven%20input,div%23main%20table.oneven%20select,div%23main%20table.oneven%20textarea{border:1px%20solid%20%23ccc}div%23main%20table.oneven%20input,div%23main%20table.oneven%20select,div%23main%20table.oneven%20textarea{background:rgba(255,255,155,.3)}.timeSpentForm{float:left;margin-right:5px}.timeSpent,.timeSpentForm%20label{margin-right:4px}div%23main%20table%20input.timeSpentButton{border:0;background:%23090;color:%23fff}::-webkit-input-placeholder{font-style:italic}::-moz-placeholder{font-style:italic}:-ms-input-placeholder{font-style:italic}';var%20h='%3Cstyle%3E'+css+'%3C/style%3E';$('head').append(h)};var%20addTimeSpentInput=function($line){if(!$line.find('input.timeSpent').length){var%20lineNumber=$line.find('td.nummer').text();var%20tabindex=parseInt($line.find('input.tijd').eq(0).attr('tabindex'),10),inputId='timeSpent-'+lineNumber,titleAttr='Bijv.%2030%20(=30m),%201h15,%201h15m,%201:15%20(=1h15m),%201.5%20(=1h30m)...';var%20html='%3Cdiv%20class=%22timeSpentForm%22%3E';html+='%3Clabel%20for=%22'+inputId+'%22%3ETijdsduur%3C/label%3E';html+='%3Cinput%20type=%22text%22%20class=%22tijd%20timeSpent%22%20name=%22'+inputId+'%22%20id=%22'+inputId+'%22%20placeholder=%221h15%22%20tabindex=%22'+tabindex+'%22%20title=%22'+titleAttr+'%22%3E';html+='%3Cinput%20type=%22button%22%20class=%22timeSpentButton%22%20value=%22Opslaan%22%20tabindex=%22'+tabindex+'%22%3E';html+='%3C/div%3E';$line.find('.eerste.verwijderknop').find('.urenfase,%20.urenfase2').after(html)}};var%20newLineHandler=function(e){$form.find('.urendag').each(function(){var%20$line=$(this);if($line.find('input[class=%22tijd%22]').length){addTimeSpentInput($line)}})};var%20initAddLineHook=function(){$form.on('click','[onclick^=%22voegNieuweRegelToe%22],%20[onclick^=%22nieuweUrenregel%22]',function(){setTimeout(newLineHandler,500)})};var%20parseTime=function(timeStr){var%20hourDelimiterRegex=/[\:\.\h]/,hours=0,minutes=0;if(timeStr){var%20m=timeStr.match(hourDelimiterRegex);if(m){var%20delimiter=m[0],arr=timeStr.split(delimiter);hours=parseInt(arr[0],10);if(arr[1]){if(delimiter==='.'){var%20factor=+timeStr;factor-=hours;minutes=Math.floor(60*factor)}else{minutes=parseInt(arr[1],10)}}}else{minutes=parseInt(timeStr,10)}}return[hours,minutes]};var%20logTimeHandler=function(e){e.preventDefault();setStartTime();var%20$btn=$(e.currentTarget);var%20timeSpent=$btn.siblings('.timeSpent').val();if(timeSpent){var%20timeArr=parseTime(timeSpent),hours=timeArr[0],minutes=timeArr[1];console.log('logTimeHandler%20-%20startTime:',startTime);var%20startHours=startTime[0],startMinutes=startTime[1];var%20endMinutes=startMinutes+minutes,endHours=startHours+hours;if(endMinutes%3E59){endHours+=Math.floor(endMinutes/60);endMinutes=endMinutes%2560}if(startMinutes%3C10){startMinutes='0'+startMinutes}if(endMinutes%3C10){endMinutes='0'+endMinutes}var%20entryStart=startHours+':'+startMinutes,entryEnd=endHours+':'+endMinutes;$btn.closest('table').find('.tweede.rechts').find('input.tijd:first-child').val(entryStart).next().val(entryEnd);slaOp()}};var%20timeSpentKeyHandler=function(e){if(e.keyCode===13){$(e.target).siblings('.timeSpentButton').trigger('click')}};var%20initLogEvent=function(){$form.on('click','.timeSpentButton',logTimeHandler);$form.on('keyup','.timeSpent',timeSpentKeyHandler)};var%20setStartTime=function(newStartTime){if(newStartTime){startTime=newStartTime}else{var%20$totTimes=$('.uren_van_tot:nth-child(3)');if($totTimes.length){$totTimes.each(function(){var%20hours=startTime[0],minutes=startTime[1],entryArr=$(this).text().split(':'),entryHours=parseInt(entryArr[0],10),entryMinutes=parseInt(entryArr[1],10);if(entryHours%3Ehours||(entryHours===hours%26%26entryMinutes%3Eminutes)){startTime=[entryHours,entryMinutes]}})}}};var%20init=function(){addCss();setStartTime();initAddLineHook();initLogEvent();newLineHandler()};init()})(jQuery);})();">Uren UI</a>
-		</p>
-		<p>
-			Improve urentool UI
-		</p>
-
-		<h2>Toggle calculation</h2>
-		<p>
-			Calculate the daily totals of Toggl.com
-		</p>
-		<P>
-			<a href="javascript:(function(){var%20$report=$('%3Cdiv%20id=%22toggleCalcReport%22%3E%3C/div%3E');$report.css({position:'fixed',background:'%23fff',border:'4px%20solid%20%23333',top:'20px',right:'20px',padding:'20px',textAlign:'left'});var%20getMins=function(durStr){var%20mins=0,arr=durStr.split(':'),len=arr.length;if(len===2){mins=parseInt(arr[0],10);}else%20if(len===3){mins=60*parseInt(arr[0],10)+parseInt(arr[1],10);}return%20mins;};var%20addZero=function(num){if(num%20%3C%2010){num='0'+''+num;}return%20num;};var%20getHourStr=function(mins){var%20hours=Math.floor(mins/60),mins=mins%20-%2060*hours;hours=addZero(hours);mins=addZero(mins);return(hours+':'+mins);};var%20$days=$('.dateheader');$days.each(function(){var%20$this=$(this);var%20$dateHeading=$this.prev('h3').clone();var%20$tasks=$this.find('.task');var%20tasks=[];$tasks.each(function(){var%20$task=$(this);var%20taskDesc=$task.find('.task-desc').text();/*var%20projectName=$task.find('.project-name').text();*/var%20duration=$task.find('.duration').text();/*replace%20whitespace*/taskDesc=taskDesc.replace(/[\(\)\s]/g,'');var%20taskMins=tasks[taskDesc]||%200;taskMins+=getMins(duration);tasks[taskDesc]=taskMins;});var%20$dayDiv=$('%3Cdiv%3E%3C/div%3E');$dayDiv.css({marginBottom:'10px;'});$dayDiv.append($dateHeading);var%20$table=$('%3Ctable%3E%3C/table%3E').appendTo($dayDiv);for(var%20t%20in%20tasks){/*console.log(t,getHourStr(tasks[t]));*/$table.append('%3Ctr%3E%3Ctd%3E'+t+'%3C/td%3E%3Ctd%3E'+getHourStr(tasks[t])+'%3C/td%3E%3C/tr%3E');}$report.append($dayDiv);/*console.log('-------------------------------');*/});$('%23toggleCalcReport').remove();$('body').append($report);})();">ToggleCalc</a>
-		</p>
-
-		<h2>Randomize url</h2>
-		<p>
-			replace the part after ? by random number
-		</p>
-		<P>
-			<a href="javascript:!function(){var%20o=document.location.href,n=o.indexOf(%22%3F%22);n%3E-1%26%26(o=o.substring(0,n)),o=o+%22%3F%22+Math.floor(1e4*Math.random()),document.location.href=o}();">randomizeUrl</a>
-		</p>
-
-		<h2>Kittify</h2>
-		<p>
-			It looks like placekitten.com is no longer working, so no longer this bookmarklet...
-		</p>
-		<P>
-			<a href="javascript:(function(){var%20imgs=document.querySelectorAll('img');for(var%20i=0,len=imgs.length;i%3Clen;i++){var%20img=imgs[i];img.src='http://placekitten.com/'+img.width+'/'+img.height;}})();">Kittify</a>
-		</p>
-		<p>
-
-		<h2>Planning AMF</h2>
-		<P>
-			<a href="javascript:(function(){var%20imgs=document.querySelectorAll('img');for(var%20i=0,len=imgs.length;i%3Clen;i++){var%20img=imgs[i];img.src='http://placekitten.com/'+img.width+'/'+img.height;}})();">Kittify</a>
-		</p>
-		<p>
-			Selecteer vestiging AMF in plantool
-		</p>
-		<p>
-			<a href="javascript:(function(){$('%23data_vestiging').find('option[value=%2245%22]').attr('selected','selected').trigger('change');})();">Planning AMF</a>
-		</p>
-		<p>
-			Verberg alle uren rows
-		</p>
-		<p>
-			<a href="javascript:(function(){var%20$hoursTrs=$(%22%23projecttable2%22).find(%22tr%22);$(%22tr.ptaak%22).each(function(){var%20$tr=$(this),idx=$tr.index(),$planningTr=$hoursTrs.eq(idx);$tr.toggle(),$planningTr.toggle()})})();">Hide plan rows</a>
-		</p>
-		<p>
-			Fix row toggling in plantool
-		</p>
-		<p>
-			<a href="javascript:(function(){var%20$hoursBody=$(%22%23projecttable2%22).find(%22tbody%22),toggleNext=function($tr){var%20$nextTr=$tr.next();$nextTr.hasClass(%22ptaak%22)%26%26(idx=$nextTr.index(),$nextPlanningTr=$hoursBody.find(%22tr%22).eq(idx),$nextTr.toggle(),$nextPlanningTr.toggle(),toggleNext($nextTr))},toggleHandler=function(e){var%20$tr=$(e.currentTarget).closest(%22tr%22);toggleNext($tr)},init=function(){$(%22tr.project%22).find(%22a%22).not(%22.highlight-project%22).removeAttr(%22onmousedown%22).on(%22click%22,toggleHandler)};init()})();">plan rows</a>
-		</p>
-
-
-
-
 		
+
 	</div><!-- /.wrapper -->
 
 	<!--[if (gte IE 9)|!(IE)]><!-->

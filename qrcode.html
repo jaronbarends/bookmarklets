@@ -7,44 +7,30 @@
 	<title></title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<style>
-		/*-- Start reset --*/
-			a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,button,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,input,ins,kbd,label,legend,li,mark form,menu,nav,object,ol,option,output,p,pre,q,ruby,s,samp,section,select,small,span,strike,strong,sub,summary,sup,table,tbody,td,textarea,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;border:0;padding:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
-			button,input[type=checkbox],input[type=image],input[type=radio],input[type=submit],label{cursor:pointer}
-			strong{font-weight:700}
-			em{font-style:italic}
-			.fList{list-style:none}
-			sub, sup {font-size: 0.8em;vertical-align:sub;}
-			sup { vertical-align: super;}
-		/*-- End reset --*/
-
-		html {
-			font-size: 62.5%;/* 10px */
-		}
-		
-		body {
-			font-family: georgia;
-			font-size: 1.6rem;
-			line-height: 1.5;
-		}
-
-		h1 {
-			font-size: 3.2rem;
-			font-weight: bold;
-		}
-
-		h2 {
-			font-size: 2.4rem;
-			font-weight: bold;
-		}
-	</style>
 </head>
 <body>
-	<div class="wrapper">
-		
-	</div><!-- /.wrapper -->
 
-<script src="qrcode.js"></script>
+	<h2>QR code for current page</h2>
+	<P>
+		<a href="javascript:void%20function(){var%20e=document.createElement(%22div%22),t=function(){var%20t=%22https://chart.googleapis.com/chart%3Fchs=250x250%26cht=qr%26chl=%22+encodeURIComponent(document.location.href),n=e.style,o=document.createElement(%22img%22);o.src=t,n.position=%22fixed%22,n.zIndex=1e6,n.width=%22100%25%22,n.height=%22100%25%22,n.top=0,n.left=0,n.textAlign=%22center%22,n.backgroundColor=%22rgba(0,0,0,0.9)%22,o.style.marginTop=%22100px%22,o.style.width=%22auto%22,o.style.height=%22auto%22,e.appendChild(o),document.body.appendChild(e)},n=function(){document.body.removeChild(e)},o=function(e){27===e.keyCode%26%26n()},d=function(){t(),e.addEventListener(%22click%22,n),window.addEventListener(%22keyup%22,o)};d()}();">QR code</a>
+	</p>
+	<p>
+		Shows a lightbox with a QR code for the current page's url. ([Esc] closes the lightbox)
+	</p>
+
+	
+	
+	<script type="text/javascript">
+		/*<![CDATA[*/
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		var pageTracker = _gat._getTracker("UA-4717105-1");
+		pageTracker._initData();
+		pageTracker._trackPageview();
+		/*]]>*/
+	</script>
+
 </body>
 </html>

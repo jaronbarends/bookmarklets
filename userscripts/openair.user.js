@@ -3,8 +3,8 @@
 // @namespace http://www.jaron.nl/misc/bookmarklets
 // @description Improvements on open air time sheet
 // @include https://www.openair.com/timesheet.pl?*
-// @version 0.3
-// ==/UserScript==   
+// @version 0.5
+// ==/UserScript==
 
 (function() {
 
@@ -19,14 +19,14 @@
 			dialogBlock.querySelector(selector).click();
 		}
 	};
-	
+
 
 	/**
 	* open notes when input has value and notes are empty
 	* @returns {undefined}
 	*/
-	const openNotesIfEmpty = function(e) {
-		const input = e.currentTarget;
+	const openNotesIfEmpty = function(input) {
+		// const input = e.currentTarget;
 		if (input.value !== "") {
 			const notesTrigger = input.parentNode.querySelector('.tsDetailsAnchor');
 
@@ -41,17 +41,121 @@
 			}
 		}
 	};
+
+
+	/**
+	* parse time string and return array containing hours and minutes
+	* @param {string} time The time spent, like 1h15m, 15m, 1h, 15, 1h15, 1.15, 1:15 etc
+	* @returns {string} 'h.mm'
+	*/
+	const parseTime = function(timeStr) {
+		const hourDelimiterRegex = /[\:\h]/;
+		let hours = 0;
+		let hundredths = 0;
+		if (timeStr) {
+
+			if (timeStr.indexOf('.') > -1) {
+				// the format we want, don't do anything
+			} else {
+				// check if we have a delimiter
+				var m = timeStr.match(hourDelimiterRegex);
+
+				if (!m) {
+					// no delimiter
+					const amount = parseInt(timeStr, 10);
+					if (amount < 15) {
+						// treat 0-14 as hours,
+						hours = amount;
+					} else {
+						// 15 or higher: treat as minutes; round to closest quarter
+						hundredths = 25 * Math.round(amount/15);
+						hours = Math.floor(hundredths/100);
+						if (hours > 0) {
+							hundredths = hundredths % (100 * hours);
+						}
+					}
+				} else {
+					//hours and possibly minutes
+					var delimiter = m[0],
+					arr = timeStr.split(delimiter);
+
+					hours = parseInt(arr[0], 10);
+					if (arr[1]) {
+						// we actually had something after delimiter
+						const minutes = parseInt(arr[1], 10);
+						// round to closest 15
+						hundredths = 25 * Math.round(minutes/15);
+					}
+				}
+
+				// now make new string
+				timeStr = hours;
+				if (hundredths) {
+					timeStr += '.' + hundredths;
+				}
+			}
+		}// if (timeStr)
+
+		return timeStr;
+	};
+
+
+	/**
+	* get element containing the model of timesheet
+	* @returns {undefined}
+	*/
+	const getModelElm = function() {
+		return document.getElementById('oa_model_timesheet');
+	};
+
+	/**
+	* get specific input cell from model
+	* @returns {undefined}
+	*/
+	const getModelCell = function(model, cellName) {
+		const match = cellName.match(/^_c(\d)_r(\d)$/);
+		const col = match[1];
+		const row = match[2];
+		const cell = model.rows[row-1].fields[col-1];
+		return cell;
+	};
+
+	/**
+	* update a cell in the shadow model
+	* @returns {undefined}
+	*/
+	const updateModelCell = function(cellName, value) {
+		const modelElm = getModelElm();
+		const model = JSON.parse(modelElm.innerText);
+		const cell = getModelCell(model, cellName);
+		cell.value = value;
+		const scriptElm = document.getElementById('oa_model_timesheet');
+		console.log('model after:', model);
+		document.getElementById('oa_model_timesheet').innerText = JSON.stringify(model);
+		console.log(JSON.parse(document.getElementById('oa_model_timesheet').innerText));
+
+	};
+	
+	
 	
 
 
 	/**
-	* when blurring time input, open notes when they're still empty
+	* add blur handlers for hour
 	* @returns {undefined}
 	*/
-	const openNotesOnBlur = function() {
+	const addHourInputHandlers = function() {
 		const inputs = Array.from(document.querySelectorAll('.timesheetInputHour'));
 		inputs.forEach((input) => {
-			input.addEventListener('blur', openNotesIfEmpty);
+			input.addEventListener('blur', (e) => {
+				const inp = e.currentTarget;
+				const shadowName = inp.getAttribute('shadowname');
+				const newValue = parseTime(inp.value);
+				inp.setAttribute('value', newValue);
+				inp.value = newValue;
+				// updateModelCell(shadowName, newValue);
+				openNotesIfEmpty(inp);
+			});
 		})
 	};
 
@@ -83,24 +187,123 @@
 			}
 		});
 	};
-	
+
 
 
 	/**
-	* 
-	* @param {string} varname Description
+	* initialize stuff that depends on grid being present
 	* @returns {undefined}
 	*/
-	var init = function() {
+	const initWhenGridReady = function() {
 		const interval = 100;// check every 100 ms if timesheet grid is present
 		const grid = document.getElementById(`timesheet_grid`);
 		if (!grid) {
-			setTimeout(init, interval);
+			setTimeout(initWhenGridReady, interval);
 		} else {
 			// kick off initialisation
-			openNotesOnBlur();
+			addHourInputHandlers();
 			addDialogKeyListeners();
 		}
+	};
+
+
+
+
+
+
+	/**
+	* add css
+	* @returns {undefined}
+	*/
+	const addCss = function() {
+		const blue = '#00bdfa';
+		const green = '#a0c03b';
+		const lightGrey = '#ddd';
+
+		const css = `
+			html {
+				font-size: 14px;
+			}
+
+			#timesheet_savebutton,
+			#save_grid_submit {
+				padding: 0.5em 1em;
+			}
+
+			#timesheet_savebutton {
+				background: ${green};
+			}
+
+			#save_grid_submit {
+				border: 1px solid currentColor;
+				background: white;
+				color: ${green};
+			}
+
+			.oa3_ui #formGrid select,
+			.oa3_ui .select-oa {
+				border-radius: 0;
+				background: white;
+				box-shadow: none;
+			}
+
+			body.oa3_ui.timesheet #timesheet_grid.timesheetCompact table.timesheet tbody td select.select-oa,
+			body.oa3_ui.timesheet #timesheet_header.timesheetCompact table.timesheet tbody td select.select-oa {
+				border-color: ${lightGrey};
+				padding: 0.3em;
+			}
+
+			body.oa3_ui.timesheet #timesheet_grid.timesheetCompact table.timesheet tbody td input,
+			body.oa3_ui.timesheet #timesheet_header.timesheetCompact table.timesheet tbody td input {
+				border-color: ${lightGrey};
+				padding: 0.3em;
+				box-shadow: none;
+			}
+
+			.dialogCloseButton,
+			.dialogOkButton,
+			.dialogCloseAndSaveButton {
+				position: relative;
+			}
+
+			.dialogCloseButton::after,
+			.dialogOkButton::after,
+			.dialogCloseAndSaveButton::after {
+				display: block;
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				content: 'crtl+enter';
+				font-weight: normal;
+				color: #aaa;
+				font-size: 10px;
+				transform: translateX(-50%);
+			}
+
+			.dialogCloseAndSaveButton::after {
+				content: 'alt+s';
+			}
+
+			.dialogCloseButton::after {
+				content: 'esc';
+			}
+		`;
+		const stl = document.createElement('style');
+		stl.innerHTML = css;
+		document.querySelector('head').appendChild(stl);
+	};
+
+
+
+
+	/**
+	*
+	* @param {string} varname Description
+	* @returns {undefined}
+	*/
+	const init = function() {
+		initWhenGridReady();
+		addCss();
 	};
 
 	init();
