@@ -46,6 +46,15 @@
 			font-family: 'arial';
 		}
 
+		code {
+			display: inline-block;
+			padding: 0 0.3em;
+			border-radius: 4px;
+			font-family: 'lucida console', 'courier-new', courier, monospace;
+			font-size: smaller;
+			background: #eee;
+		}
+
 		.wrapper {
 			margin: 0em auto;
 			padding: 1em;
@@ -63,15 +72,12 @@
 		<h2>QR code for current page</h2>
 		<P>
 			<a href="javascript:void%20function(){var%20e=document.createElement(%22div%22),t=function(){var%20t=%22https://chart.googleapis.com/chart%3Fchs=250x250%26cht=qr%26chl=%22+encodeURIComponent(document.location.href),n=e.style,o=document.createElement(%22img%22);o.src=t,n.position=%22fixed%22,n.zIndex=1e6,n.width=%22100%25%22,n.height=%22100%25%22,n.top=0,n.left=0,n.textAlign=%22center%22,n.backgroundColor=%22rgba(0,0,0,0.9)%22,o.style.marginTop=%22100px%22,o.style.width=%22auto%22,o.style.height=%22auto%22,e.appendChild(o),document.body.appendChild(e)},n=function(){document.body.removeChild(e)},o=function(e){27===e.keyCode%26%26n()},d=function(){t(),e.addEventListener(%22click%22,n),window.addEventListener(%22keyup%22,o)};d()}();">QR code</a>
-			Show a lightbox with a QR code for the current page's url.
+			Show a lightbox with a QR code for the current page's url. Click the lightbox or hit [Esc] to close.
 		</p>
 
 		<h2>Randomize url</h2>
 		<p>
-			Add random parameter to query string (or change it)
-		</p>
-		<P>
-			<a href='javascript:void function(){var i=document.location.href,o=i.indexOf("%3F"),n=i.indexOf("%23"),t="",a=[];if(n>-1){var e=i.split("%23");i=e[0],t="%23"+e[1]}o>-1%26%26(a=i.split("%3F"),i=a[0],a=a[1].split("%26")),a.forEach(function(i,o){"randomize"===i.split("=")[0]%26%26a.splice(o,1)}),a.push("randomize="+Math.floor(1e4*Math.random())),i+="%3F"+a.join("%26")+t,window.location.href=i}();'>randomizeUrl</a>
+			<a href='javascript:void function(){var i=document.location.href,o=i.indexOf("%3F"),n=i.indexOf("%23"),t="",a=[];if(n>-1){var e=i.split("%23");i=e[0],t="%23"+e[1]}o>-1%26%26(a=i.split("%3F"),i=a[0],a=a[1].split("%26")),a.forEach(function(i,o){"randomize"===i.split("=")[0]%26%26a.splice(o,1)}),a.push("randomize="+Math.floor(1e4*Math.random())),i+="%3F"+a.join("%26")+t,window.location.href=i}();'>randomizeUrl</a> Add random parameter to query string (or change it)
 		</p>
 
 		<h2>Kittify</h2>
@@ -80,11 +86,31 @@
 			Change all images on a web page to images of kittens
 		</p>
 
-		<h2>Remove AEM author layer</h2>
+		<h2>AEM: Toggle author layer</h2>
 		<P>
-			<a href='javascript:void function(){document.getElementById("OverlayWrapper").style.display="none"}();'>Hide Author Layer</a>
-			Remove the author layer in AEM so you can inspect elements in the author environment
+			<a href='javascript:void function(){const o=document.getElementById("OverlayWrapper");o.style.display=(o.style.display==="none")?"block":"none"}();'>Toggle AEM Author Layer</a>
+			Toggle the author layer in AEM so you can inspect elements in the author environment
 		</p>
+
+		<h2>AEM: Toggle between Author and View as published</h2>
+		<P>
+			<a href='javascript:void function(){let a=document.location.href;const b=-1<a.indexOf("editor.html");b%3F(a=a.replace("editor.html/",""),a+="%3Fwcmmode=disabled"):(a=a.replace("/content/","/editor.html/content/"),a=a.split("%3F")[0]),document.location.href=a}();'>Author ⇆ Publish</a>
+			Toggle between the Author and View as published views in AEM
+		</p>
+
+		<h2>Disable data-dm clicks</h2>
+		<P>
+			<a href='javascript:void%20function(){let%20a=0;Array.from(document.querySelectorAll(%22[data-dm]%22)).forEach(function(b){a++,b.addEventListener(%22click%22,function(a){a.preventDefault()})}),console.log(%22click%20disabled%20on%20%22+a+%22%20element(s)%20with%20attribute%20\%22%22+%22data-dm%22+%22\%22%22)}();'>Disable data-dm clicks</a>
+			Disable clicks on alements with <code>data-dm</code>-attribute for easy testing
+		</p>
+
+		<h2>Add issue numbers to tfs cards</h2>
+		<P>
+			<a href='javascript:void%20function(){const%20a=Array.from(document.querySelectorAll(%22.tbTile%22));a.forEach(a=%3E{const%20b=a.id,c=b.replace(%22tile-%22,%22%22),d=a.querySelector(%22.tbTileContent%22),e=a.querySelector(%22.id-title-container%22),f=document.createElement(%22div%22);f.textContent=c,e.appendChild(f),d.setAttribute(%22title%22,c)})}();'>TFS issue nrs</a>
+			Add issue numbers to tfs cards
+		</p>
+
+		
 
 		<h2>Fill form with random content</h2>
 		<P>
