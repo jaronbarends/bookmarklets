@@ -55,6 +55,16 @@
 			background: #eee;
 		}
 
+		input {
+			border: 1px solid #ccc;
+			border-radius: 0.3em;
+			padding: 0 0.5em;
+		}
+
+		label {
+			margin-right: 0.5em;
+		}
+
 		.wrapper {
 			margin: 0em auto;
 			padding: 1em;
@@ -84,6 +94,66 @@
 		<P>
 			<a href="javascript:void%20function(){const%20a=document.querySelectorAll(%22img%22),b=new%20Map,c=function(a){var%20c=Math.round;const%20d=%22IMG%22===a.tagName%3Fa.width:a.offsetWidth,e=%22IMG%22===a.tagName%3Fa.height:a.offsetHeight;let%20f;let%20g=d,h=e;for(;b.get(`${g}x${h}`);)g+=2,h=c(g/(d/e));return%20b.set(`${g}x${h}`,!0),f=`https://placekitten.com/${g}/${h}`,f};a.forEach(a=%3E{const%20b=a.width,d=a.height,e=c(a);e%26%26(a.removeAttribute(%22srcset%22),a.src=e,a.width=b,a.height=d)});const%20d=document.querySelectorAll(%22[style*='url('][style*='background-image']%22);d.forEach(a=%3E{const%20b=c(a);b%26%26(a.style.backgroundImage=`url(${b})`)})}();">Kittify</a>
 			Change all images on a web page to images of kittens
+		</p>
+
+		<h2>Toggle passwords</h2>
+		<!-- had trouble getting the correct href myself; copy-pasted the href-value in Bookmarkleter -->
+		<p>
+			<a href="javascript:void%20function(){let%20a=[],b=[];const%20c=function(a,c){const%20e=document.createElement(%22span%22),f=document.createElement(%22button%22);a.setAttribute(%22data-toggl-pw-id%22,c),e.classList.add(%22tggl-pw%22),f.classList.add(%22tggl-pw__btn%22),f.type=%22button%22,f.title=%22toggle%20all%20password%20fields%22,f.setAttribute(%22data-toggl-pw-id%22,c),e.appendChild(f),f.addEventListener(%22click%22,d),a.after(e),b.push(f)},d=function(c){let%20d;const%20e=c.target.getAttribute(%22data-toggl-pw-id%22);a.forEach(a=%3E{d||(d=%22password%22===a.type%3F%22text%22:%22password%22),a.type=d,b.forEach(b=%3E{%22password%22===a.type%3Fb.classList.remove(%22tggl-pw__btn--hide%22):b.classList.add(%22tggl-pw__btn--hide%22)})}),%22text%22===d%26%26document.querySelector(`[data-toggl-pw-id=%22${e}%22]`).select()},e=function(){a.forEach(a=%3Ea.type=%22password%22)},f=function(){a=document.querySelectorAll(`input[type='password']`),a.forEach((a,b)=%3E{c(a,b);const%20d=a.closest(%22form%22);d%26%26d.addEventListener(%22submit%22,e)});const%20b=document.createElement(%22style%22);b.innerHTML=`
+			.tggl-pw%20{
+				--icon-width:%2018px;
+				--icon-height:%20calc(2%20*%20var(--icon-width)%20/%203);
+				--pd-v:%2010px;
+				--pd-h:%2015px;
+	
+				position:%20relative;
+				display:%20inline-block;
+				border-radius:%205px;
+				background:%20white;
+				vertical-align:%20middle;
+			}
+	
+			.tggl-pw__btn%20{
+				--hide-icon:%20url('${%22data:image/svg+xml;utf-8,%3Csvg%20xmlns=\%22http://www.w3.org/2000/svg\%22%20viewBox=\%220%200%2090%2060\%22%3E%3Cpath%20d=\%22M45%2015c-2.8%200-5.3.8-7.6%202.1%201.3%201.1%202.1%202.7%202.1%204.5%200%203.2-2.6%205.8-5.8%205.8-1.2%200-2.4-.4-3.3-1-.2%201.1-.4%202.3-.4%203.6%200%208.3%206.7%2015%2015%2015s15-6.7%2015-15-6.7-15-15-15z\%22/%3E%3Cg%20stroke=\%22black\%22%20stroke-width=\%227\%22%20stroke-miterlimit=\%2210\%22%3E%3Cpath%20fill=\%22none\%22%20stroke-linecap=\%22round\%22%20d=\%22M5%2055L85%205\%22/%3E%3Cpath%20d=\%22M85%2030S67.1%2055%2045%2055%205%2030%205%2030%2022.9%205%2045%205s40%2025%2040%2025z\%22%20fill=\%22none\%22/%3E%3C/g%3E%3C/svg%3E%22}');
+	
+				--show-icon:%20url('${%22data:image/svg+xml;utf-8,%3Csvg%20xmlns=\%22http://www.w3.org/2000/svg\%22%20viewBox=\%220%200%2090%2060\%22%3E%3Cstyle%3E%3C/style%3E%3Cg%20id=\%22Layer_4\%22%3E%3Cpath%20d=\%22M85%2030S67.1%2055%2045%2055%205%2030%205%2030%2022.9%205%2045%205s40%2025%2040%2025z\%22%20fill=\%22none\%22%20stroke=\%22black\%22%20stroke-width=\%227\%22%20stroke-miterlimit=\%2210\%22/%3E%3Cpath%20d=\%22M45%2015c-2.8%200-5.3.8-7.6%202.1%201.3%201.1%202.1%202.7%202.1%204.5%200%203.2-2.6%205.8-5.8%205.8-1.2%200-2.4-.4-3.3-1-.2%201.1-.4%202.3-.4%203.6%200%208.3%206.7%2015%2015%2015s15-6.7%2015-15-6.7-15-15-15z\%22/%3E%3C/g%3E%3C/svg%3E%22}');
+	
+				position:%20absolute;
+				z-index:%201;
+				top:%2050%25;
+				right:%205px;
+				width:%20100%25;
+				height:%20100%25;
+				border:%20none;
+				border-radius:%203px;
+				padding:%20var(--pd-v)%20var(--pd-h);
+				width:%200;
+				height:%200;
+				transform:%20translateY(-50%25);
+				cursor:%20pointer;
+				background:%20var(--show-icon)%20center%20center%20no-repeat;
+				background-size:%20var(--icon-width)%20var(--icon-height);
+				background-color:%20white;
+				opacity:%200.5;
+				transition:%20opacity%200.3s%20ease-in-out;
+			}
+	
+			.tggl-pw__btn:hover,
+			.tggl-pw__btn:focus%20{
+				opacity:%200.8;
+			}
+	
+			.tggl-pw__btn:hover%20{
+				outline:%20none;
+			}
+	
+			.tggl-pw__btn--hide%20{
+				background-image:%20var(--hide-icon);
+			}
+		`,document.querySelector(%22head%22).appendChild(b)};f()}();">Toggle Passwords</a> Add an eye-icon next to every password field to toggle password masking. Also available as a <a href="https://greasyfork.org/en/scripts/4181-toggle-passwords">userscript</a>.
+		</p>
+		<p>
+			<label for="toggle-pw-example">Example password</label><input type="password" value="now you see me" id="toggle-pw-example">
 		</p>
 
 		<h2>AEM: Toggle author layer</h2>
