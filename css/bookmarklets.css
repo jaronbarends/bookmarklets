@@ -1,0 +1,95 @@
+:root {
+	--font-serif: georgia;
+	--font-sans-serif: arial, helvetica, sans-serif;
+}
+
+body {
+	font-family: var(--font-serif);
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #333;
+}
+
+h1 {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0 0 1rem;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-sans-serif);
+}
+
+code {
+	display: inline-block;
+	padding: 0 0.3em;
+	border-radius: 4px;
+	font-family: 'lucida console', 'courier-new', courier, monospace;
+	font-size: smaller;
+	background: #eee;
+}
+
+input,
+button {
+	border: 1px solid #ccc;
+	border-radius: 0.3em;
+	padding: 0.25em 0.5em;
+	font-family: var(--font-sans-serif);
+}
+
+label {
+	display: block;
+	margin-bottom: 0.25em;
+	font-family: var(--font-sans-serif);
+	font-weight: bold;
+	font-size: 0.875rem;// 14px
+}
+
+.wrapper {
+	margin: 0em auto;
+	padding: 1em;
+	max-width: 60em;
+}
+
+.bmk {
+	margin-top: 2em;
+	border-top: 1px solid #ccc;
+	padding-top: 1em;
+}
+
+a[href^="#"]::before {
+	content: '#';
+	position: absolute;
+	color: #ccc;
+	font-weight: bold;
+	text-decoration: none;
+	transform: translate(-1em, 0.4em);
+}
+
+a[href^="#"]:hover::before,
+a[href^="#"]:focus::before {
+	color: black;
+}
+
+.favicon {
+	--size: 0.7em;
+	display: inline-block;
+	width: var(--size);
+	height: var(--size);
+}

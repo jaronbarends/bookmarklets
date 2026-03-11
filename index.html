@@ -1,77 +1,20 @@
 <!doctype html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="nl" class="no-js"> <!--<![endif]-->
+<html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
+
 	<title>Bookmarklets</title>
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<style>
-		/*-- Start reset --*/
-			a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,button,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,input,ins,kbd,label,legend,li,mark form,menu,nav,object,ol,option,output,p,pre,q,ruby,s,samp,section,select,small,span,strike,strong,sub,summary,sup,table,tbody,td,textarea,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;border:0;padding:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}button,input[type=checkbox],input[type=image],input[type=radio],input[type=submit],label{cursor:pointer}strong{font-weight:700}em{font-style:italic}.fList{list-style:none}
-		/*-- End reset --*/
 
-		html {
-			font-size: 62.5%;/* 10px */
-		}
-		
-		body {
-			font-family: georgia;
-			font-size: 1.6rem;
-			line-height: 1.5;
-			color: #333;
-		}
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/bookmarklets.css">
+	<link rel="stylesheet" href="viewport-indicator/viewport-indicator-generator.css">
 
-		h1 {
-			font-size: 3.2rem;
-			font-weight: bold;
-		}
-
-		h2 {
-			font-size: 2.4rem;
-			font-weight: bold;
-		}
-
-		h1,h2,h3,h4,h5,h6,p {
-			margin: 0 0 1.6rem;
-		}
-
-		h1,h2,h3 {
-			font-family: 'arial';
-		}
-
-		code {
-			display: inline-block;
-			padding: 0 0.3em;
-			border-radius: 4px;
-			font-family: 'lucida console', 'courier-new', courier, monospace;
-			font-size: smaller;
-			background: #eee;
-		}
-
-		input {
-			border: 1px solid #ccc;
-			border-radius: 0.3em;
-			padding: 0 0.5em;
-		}
-
-		label {
-			margin-right: 0.5em;
-		}
-
-		.wrapper {
-			margin: 0em auto;
-			padding: 1em;
-			max-width: 60em;
-		}
-	</style>
 </head>
+
 <body>
 	<div class="wrapper">
 		<h1>Bookmarklets</h1>
@@ -79,128 +22,169 @@
 			Drag any of the links you want to use to your browser's bookmark bar.
 		</p>
 
-		<h2>QR code for current page</h2>
-		<P>
-			<a href="javascript:void%20function(){var%20e=document.createElement(%22div%22),t=function(){var%20t=%22https://chart.googleapis.com/chart%3Fchs=250x250%26cht=qr%26chl=%22+encodeURIComponent(document.location.href),n=e.style,o=document.createElement(%22img%22);o.src=t,n.position=%22fixed%22,n.zIndex=1e6,n.width=%22100%25%22,n.height=%22100%25%22,n.top=0,n.left=0,n.textAlign=%22center%22,n.backgroundColor=%22rgba(0,0,0,0.9)%22,o.style.marginTop=%22100px%22,o.style.width=%22auto%22,o.style.height=%22auto%22,e.appendChild(o),document.body.appendChild(e)},n=function(){document.body.removeChild(e)},o=function(e){27===e.keyCode%26%26n()},d=function(){t(),e.addEventListener(%22click%22,n),window.addEventListener(%22keyup%22,o)};d()}();">QR code</a>
-			Show a lightbox with a QR code for the current page's url. Click the lightbox or hit [Esc] to close.
-		</p>
+		<!-- <div class="bmk" id="qr-code">
+			<a href="#qr-code"></a>
+			<h2>QR code for current page</h2>
+			<P>
+				<a
+					href="javascript:void%20function(){var%20e=document.createElement(%22div%22),t=function(){var%20t=%22https://chart.googleapis.com/chart%3Fchs=250x250%26cht=qr%26chl=%22+encodeURIComponent(document.location.href),n=e.style,o=document.createElement(%22img%22);o.src=t,n.position=%22fixed%22,n.zIndex=1e6,n.width=%22100%25%22,n.height=%22100%25%22,n.top=0,n.left=0,n.textAlign=%22center%22,n.backgroundColor=%22rgba(0,0,0,0.9)%22,o.style.marginTop=%22100px%22,o.style.width=%22auto%22,o.style.height=%22auto%22,e.appendChild(o),document.body.appendChild(e)},n=function(){document.body.removeChild(e)},o=function(e){27===e.keyCode%26%26n()},d=function(){t(),e.addEventListener(%22click%22,n),window.addEventListener(%22keyup%22,o)};d()}();">QR
+					code</a>
+				Show a lightbox with a QR code for the current page's url. Click the lightbox or hit [Esc] to close.
+			</p>
+		</div> -->
 
-		<h2>Randomize url</h2>
-		<p>
-			<a href='javascript:void function(){var i=document.location.href,o=i.indexOf("%3F"),n=i.indexOf("%23"),t="",a=[];if(n>-1){var e=i.split("%23");i=e[0],t="%23"+e[1]}o>-1%26%26(a=i.split("%3F"),i=a[0],a=a[1].split("%26")),a.forEach(function(i,o){"randomize"===i.split("=")[0]%26%26a.splice(o,1)}),a.push("randomize="+Math.floor(1e4*Math.random())),i+="%3F"+a.join("%26")+t,window.location.href=i}();'>randomizeUrl</a> Add random parameter to query string (or change it)
-		</p>
+		<div class="bmk" id="toggle-passwords">
+			<a href="#toggle-passwords"></a>
+			<h2>Toggle passwords</h2>
+			<!-- had trouble getting the correct href myself; copy-pasted the href-value in Bookmarkleter -->
+			<p>
+				<a href="javascript:void%20function(){let%20a=[],b=[],c=!1;const%20d={id:%22data-toggl-pw-id%22,form:%22data-toggl-pw-form%22},e=function(a){const%20c=document.createElement(%22span%22),e=document.createElement(%22button%22),g=Math.floor(1e6*Math.random());a.setAttribute(d.id,g),c.classList.add(%22tggl-pw%22),e.classList.add(%22tggl-pw__btn%22),e.type=%22button%22,e.title=%22toggle%20all%20password%20fields%22,e.setAttribute(d.id,g),e.tabIndex=-1,c.appendChild(e),e.addEventListener(%22click%22,f),a.after(c),b.push(e)},f=function(c){let%20e;const%20f=c.target.getAttribute(d.id);a.forEach(a=%3E{e||(e=%22password%22===a.type%3F%22text%22:%22password%22),a.type=e,b.forEach(b=%3E{%22password%22===a.type%3Fb.classList.remove(%22tggl-pw__btn--hide%22):b.classList.add(%22tggl-pw__btn--hide%22)})}),%22text%22===e%26%26document.querySelector(`[data-toggl-pw-id=%22${f}%22]`).select()},g=function(b){a.forEach(a=%3E{a.type=%22password%22})},h=function(b=!0){if(a=document.querySelectorAll(`input[type='password']`),0%3Ca.length%26%26(a.forEach(a=%3E{if(null===a.getAttribute(d.id)){e(a);const%20b=a.closest(%22form%22);b%26%26%22true%22!==b.getAttribute(d.form)%26%26(b.addEventListener(%22submit%22,g),b.setAttribute(d.form,!0))}}),!c)){const%20a=document.createElement(%22style%22);a.innerHTML=`
+					.tggl-pw%20{
+						--icon-width:%2018px;
+						--icon-height:%20calc(2%20*%20var(--icon-width)%20/%203);
+						--pd-v:%2010px;
+						--pd-h:%2015px;
+			
+						position:%20relative;
+						display:%20inline-block;
+						border-radius:%205px;
+						background:%20white;
+						vertical-align:%20middle;
+					}
+			
+					.tggl-pw__btn%20{
+						--hide-icon:%20url('${%22data:image/svg+xml;utf-8,%3Csvg%20xmlns=\%22http://www.w3.org/2000/svg\%22%20viewBox=\%220%200%2090%2060\%22%3E%3Cpath%20d=\%22M45%2015c-2.8%200-5.3.8-7.6%202.1%201.3%201.1%202.1%202.7%202.1%204.5%200%203.2-2.6%205.8-5.8%205.8-1.2%200-2.4-.4-3.3-1-.2%201.1-.4%202.3-.4%203.6%200%208.3%206.7%2015%2015%2015s15-6.7%2015-15-6.7-15-15-15z\%22/%3E%3Cg%20stroke=\%22black\%22%20stroke-width=\%227\%22%20stroke-miterlimit=\%2210\%22%3E%3Cpath%20fill=\%22none\%22%20stroke-linecap=\%22round\%22%20d=\%22M5%2055L85%205\%22/%3E%3Cpath%20d=\%22M85%2030S67.1%2055%2045%2055%205%2030%205%2030%2022.9%205%2045%205s40%2025%2040%2025z\%22%20fill=\%22none\%22/%3E%3C/g%3E%3C/svg%3E%22}');
+			
+						--show-icon:%20url('${%22data:image/svg+xml;utf-8,%3Csvg%20xmlns=\%22http://www.w3.org/2000/svg\%22%20viewBox=\%220%200%2090%2060\%22%3E%3Cstyle%3E%3C/style%3E%3Cg%20id=\%22Layer_4\%22%3E%3Cpath%20d=\%22M85%2030S67.1%2055%2045%2055%205%2030%205%2030%2022.9%205%2045%205s40%2025%2040%2025z\%22%20fill=\%22none\%22%20stroke=\%22black\%22%20stroke-width=\%227\%22%20stroke-miterlimit=\%2210\%22/%3E%3Cpath%20d=\%22M45%2015c-2.8%200-5.3.8-7.6%202.1%201.3%201.1%202.1%202.7%202.1%204.5%200%203.2-2.6%205.8-5.8%205.8-1.2%200-2.4-.4-3.3-1-.2%201.1-.4%202.3-.4%203.6%200%208.3%206.7%2015%2015%2015s15-6.7%2015-15-6.7-15-15-15z\%22/%3E%3C/g%3E%3C/svg%3E%22}');
+			
+						position:%20absolute;
+						z-index:%201;
+						top:%2050%25;
+						right:%205px;
+						width:%20100%25;
+						height:%20100%25;
+						border:%20none;
+						border-radius:%203px;
+						padding:%20var(--pd-v)%20var(--pd-h);
+						width:%200;
+						height:%200;
+						transform:%20translateY(-50%25);
+						cursor:%20pointer;
+						background:%20var(--show-icon)%20center%20center%20no-repeat;
+						background-size:%20var(--icon-width)%20var(--icon-height);
+						background-color:%20white;
+						opacity:%200.5;
+						transition:%20opacity%200.3s%20ease-in-out;
+					}
+			
+					.tggl-pw__btn:hover,
+					.tggl-pw__btn:focus%20{
+						opacity:%200.8;
+					}
+			
+					.tggl-pw__btn:hover%20{
+						outline:%20none;
+					}
+			
+					.tggl-pw__btn--hide%20{
+						background-image:%20var(--hide-icon);
+					}
+				`,document.querySelector(%22head%22).appendChild(a),c=!0}b%26%26setTimeout(()=%3E{h(!1)},1e3)};h()}();">Toggle Passwords</a> Add an eye-icon next to every
+				password field to toggle password masking. Also available as a <a
+					href="https://greasyfork.org/en/scripts/4181-toggle-passwords">userscript</a>.
+			</p>
+			<p>
+				<label for="toggle-pw-example">Example password</label><input type="password" value="now you see me"
+					id="toggle-pw-example">
+			</p>
+		</div>
 
-		<h2>Kittify</h2>
-		<P>
-			<a href="javascript:void%20function(){const%20a=document.querySelectorAll(%22img%22),b=new%20Map,c=function(a){var%20c=Math.round;const%20d=%22IMG%22===a.tagName%3Fa.width:a.offsetWidth,e=%22IMG%22===a.tagName%3Fa.height:a.offsetHeight;let%20f;let%20g=d,h=e;for(;b.get(`${g}x${h}`);)g+=2,h=c(g/(d/e));return%20b.set(`${g}x${h}`,!0),f=`https://placekitten.com/${g}/${h}`,f};a.forEach(a=%3E{const%20b=a.width,d=a.height,e=c(a);e%26%26(a.removeAttribute(%22srcset%22),a.src=e,a.width=b,a.height=d)});const%20d=document.querySelectorAll(%22[style*='url('][style*='background-image']%22);d.forEach(a=%3E{const%20b=c(a);b%26%26(a.style.backgroundImage=`url(${b})`)})}();">Kittify</a>
-			Change all images on a web page to images of kittens
-		</p>
+		<div class="bmk" id="viewport-indicator">
+			<a href="#viewport-indicator"></a>
+			<h2>Viewport indicator</h2>
+				<form id="viewport-indicator-generator">
+					<p>
+					<a id="viewport-indicator-bookmarklet" href="">Viewport Indicator</a><br>
+					</p>
+					<p>
+						Show an indicator for the current viewport in the screen's bottom right corner, based on the names and values in the input below.
+					</p>
+					<label for="viewport-indicator-config">viewports</label><input id="viewport-indicator-config" class="viewport-indicator-config" value="" />
+					<button>Update bookmarklet</button>
+			</form>
+		</div>
 
-		<h2>Toggle passwords</h2>
-		<!-- had trouble getting the correct href myself; copy-pasted the href-value in Bookmarkleter -->
-		<p>
-			<a href="javascript:void%20function(){let%20a=[],b=[];const%20c=function(a,c){const%20e=document.createElement(%22span%22),f=document.createElement(%22button%22);a.setAttribute(%22data-toggl-pw-id%22,c),e.classList.add(%22tggl-pw%22),f.classList.add(%22tggl-pw__btn%22),f.type=%22button%22,f.title=%22toggle%20all%20password%20fields%22,f.setAttribute(%22data-toggl-pw-id%22,c),e.appendChild(f),f.addEventListener(%22click%22,d),a.after(e),b.push(f)},d=function(c){let%20d;const%20e=c.target.getAttribute(%22data-toggl-pw-id%22);a.forEach(a=%3E{d||(d=%22password%22===a.type%3F%22text%22:%22password%22),a.type=d,b.forEach(b=%3E{%22password%22===a.type%3Fb.classList.remove(%22tggl-pw__btn--hide%22):b.classList.add(%22tggl-pw__btn--hide%22)})}),%22text%22===d%26%26document.querySelector(`[data-toggl-pw-id=%22${e}%22]`).select()},e=function(){a.forEach(a=%3Ea.type=%22password%22)},f=function(){a=document.querySelectorAll(`input[type='password']`),a.forEach((a,b)=%3E{c(a,b);const%20d=a.closest(%22form%22);d%26%26d.addEventListener(%22submit%22,e)});const%20b=document.createElement(%22style%22);b.innerHTML=`
-			.tggl-pw%20{
-				--icon-width:%2018px;
-				--icon-height:%20calc(2%20*%20var(--icon-width)%20/%203);
-				--pd-v:%2010px;
-				--pd-h:%2015px;
-	
-				position:%20relative;
-				display:%20inline-block;
-				border-radius:%205px;
-				background:%20white;
-				vertical-align:%20middle;
-			}
-	
-			.tggl-pw__btn%20{
-				--hide-icon:%20url('${%22data:image/svg+xml;utf-8,%3Csvg%20xmlns=\%22http://www.w3.org/2000/svg\%22%20viewBox=\%220%200%2090%2060\%22%3E%3Cpath%20d=\%22M45%2015c-2.8%200-5.3.8-7.6%202.1%201.3%201.1%202.1%202.7%202.1%204.5%200%203.2-2.6%205.8-5.8%205.8-1.2%200-2.4-.4-3.3-1-.2%201.1-.4%202.3-.4%203.6%200%208.3%206.7%2015%2015%2015s15-6.7%2015-15-6.7-15-15-15z\%22/%3E%3Cg%20stroke=\%22black\%22%20stroke-width=\%227\%22%20stroke-miterlimit=\%2210\%22%3E%3Cpath%20fill=\%22none\%22%20stroke-linecap=\%22round\%22%20d=\%22M5%2055L85%205\%22/%3E%3Cpath%20d=\%22M85%2030S67.1%2055%2045%2055%205%2030%205%2030%2022.9%205%2045%205s40%2025%2040%2025z\%22%20fill=\%22none\%22/%3E%3C/g%3E%3C/svg%3E%22}');
-	
-				--show-icon:%20url('${%22data:image/svg+xml;utf-8,%3Csvg%20xmlns=\%22http://www.w3.org/2000/svg\%22%20viewBox=\%220%200%2090%2060\%22%3E%3Cstyle%3E%3C/style%3E%3Cg%20id=\%22Layer_4\%22%3E%3Cpath%20d=\%22M85%2030S67.1%2055%2045%2055%205%2030%205%2030%2022.9%205%2045%205s40%2025%2040%2025z\%22%20fill=\%22none\%22%20stroke=\%22black\%22%20stroke-width=\%227\%22%20stroke-miterlimit=\%2210\%22/%3E%3Cpath%20d=\%22M45%2015c-2.8%200-5.3.8-7.6%202.1%201.3%201.1%202.1%202.7%202.1%204.5%200%203.2-2.6%205.8-5.8%205.8-1.2%200-2.4-.4-3.3-1-.2%201.1-.4%202.3-.4%203.6%200%208.3%206.7%2015%2015%2015s15-6.7%2015-15-6.7-15-15-15z\%22/%3E%3C/g%3E%3C/svg%3E%22}');
-	
-				position:%20absolute;
-				z-index:%201;
-				top:%2050%25;
-				right:%205px;
-				width:%20100%25;
-				height:%20100%25;
-				border:%20none;
-				border-radius:%203px;
-				padding:%20var(--pd-v)%20var(--pd-h);
-				width:%200;
-				height:%200;
-				transform:%20translateY(-50%25);
-				cursor:%20pointer;
-				background:%20var(--show-icon)%20center%20center%20no-repeat;
-				background-size:%20var(--icon-width)%20var(--icon-height);
-				background-color:%20white;
-				opacity:%200.5;
-				transition:%20opacity%200.3s%20ease-in-out;
-			}
-	
-			.tggl-pw__btn:hover,
-			.tggl-pw__btn:focus%20{
-				opacity:%200.8;
-			}
-	
-			.tggl-pw__btn:hover%20{
-				outline:%20none;
-			}
-	
-			.tggl-pw__btn--hide%20{
-				background-image:%20var(--hide-icon);
-			}
-		`,document.querySelector(%22head%22).appendChild(b)};f()}();">Toggle Passwords</a> Add an eye-icon next to every password field to toggle password masking. Also available as a <a href="https://greasyfork.org/en/scripts/4181-toggle-passwords">userscript</a>.
-		</p>
-		<p>
-			<label for="toggle-pw-example">Example password</label><input type="password" value="now you see me" id="toggle-pw-example">
-		</p>
+		<div class="bmk" id="kittify">
+			<a href="#kittify"></a>
+			<h2>Kittify</h2>
+			<P>
+				<a
+					href="javascript:void function(){function a(a){var b=Math.round;const e='IMG'===a.tagName%3Fa.width:a.offsetWidth,f='IMG'===a.tagName%3Fa.height:a.offsetHeight;let g;let h=e,i=f;for(;c.get(`${h}x${i}`);)h+=2,i=b(h/(e/f));return c.set(`${h}x${i}`,!0),g=`https://loremflickr.com/${h}/${i}/${d}`,g}const b=document.querySelectorAll('img'),c=new Map,d='kitten';(function(c='kitten'){b.forEach(b=>{const d=b.width,e=b.height,f=a(b,c);f%26%26(b.removeAttribute('srcset'),b.src=f,b.width=d,b.height=e)})})();const e=document.querySelectorAll(`[style*='url('][style*='background-image']`);e.forEach(b=>{const c=a(b);c%26%26(b.style.backgroundImage=`url(${c})`)})}();"">Kittify</a>
+				Change all images on a web page to images of kittens
+			</p>
+			<p>
+				<img src="http://picsum.photos/150/120/" alt="">
+				<img src="http://picsum.photos/180/120/" alt="">
+				<img src="http://picsum.photos/200/120/" alt="">
+			</p>
+		</div>
 
-		<h2>AEM: Toggle author layer</h2>
-		<P>
-			<a href='javascript:void function(){const o=document.getElementById("OverlayWrapper");o.style.display=(o.style.display==="none")?"block":"none"}();'>Toggle AEM Author Layer</a>
-			Toggle the author layer in AEM so you can inspect elements in the author environment
-		</p>
+		<div class="bmk" id="mario-anywhere">
+			<a href="#mario-anywhere"></a>
+			<h2>Mario anywhere</h2>
+			<p>
+				<!-- replace " with %22 in code -->
+				<a
+					href="javascript:void%20function(){var%20a=Math.min,b=Math.abs;class%20c{platformsAreVisible=!1;menuBox=null;constructor(a){this.render=a,this.addMenuBox(),this.addRevealButton(),this.addResetButton()}addMenuBox(){const%20a=document.createElement(%22div%22);document.body.appendChild(a),this.addStyles(a,{position:%22fixed%22,display:%22flex%22,flexDirection:%22column%22,alignItems:%22center%22,gap:%220.5rem%22,bottom:%221.5rem%22,right:%220.5rem%22,zIndex:1e16}),this.menuBox=a}addButton(a){const%20b=a.id;document.getElementById(b)%3F.remove();const%20c=document.createElement(%22button%22);c.id=b,a.svg%3Fc.innerHTML=a.svg:c.textContent=a.text,c.title=a.title,c.classList.add(%22mario-menu-btn%22),this.menuBox.appendChild(c);return%20this.addStyles(c,{display:%22flex%22,justifyContent:%22center%22,alignItems:%22center%22,width:%222rem%22,height:%222rem%22,borderRadius:%2250%25%22,borderRadius:%220.25rem%22,background:%22black%22,color:%22white%22,opacity:.5}),document.styleSheets[0].insertRule(%22.mario-menu-btn:hover%20{opacity:%201%20!important}%22),c}addRevealButton(){const%20a=this.addButton({id:%22mario-platform-revealer%22,title:%22Toggle%20platform%20visibility%22,svg:`%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%20${%22style=\%22position:absolute;width:2rem;\%22%22}%3E            %20%20%20%20%3Cg%3E            %20%20%20%20%20%20%3Cpath%20d=%22M6%2023h20v2H6zM14%2018h12v2H14zM6%2013h12v2H6zM13%208h10v2H13z%22%20style=%22stroke-width:0;fill:currentColor%22/%3E            %20%20%20%20%3C/g%3E            %20%20%3C/svg%3E`,text:%22%3F%22});a.addEventListener(%22click%22,()=%3E{a.blur(),this.togglePlatformVisibility()})}addResetButton(){const%20a=this.addButton({id:%22mario-reset-button%22,title:%22Reset%20Mario%22,text:%22^%22,svg:`%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%20${%22style=\%22position:absolute;width:2rem;\%22%22}%3E            %20%20%3Cpath%20d=%22M23.79%2011.5c-2.48-4.3-8-5.78-12.29-3.29l-.97.56.88-3.27-2.49%201.44-1.24%204.63%204.63%201.24%202.49-1.44-3.27-.87.97-.56c3.34-1.93%207.63-.78%209.56%202.56.94%201.62%201.18%203.51.7%205.31a6.91%206.91%200%200%201-3.26%204.25%206.949%206.949%200%200%201-5.31.7%206.91%206.91%200%200%201-4.25-3.26l-1.73%201a8.926%208.926%200%200%200%205.46%204.19c.78.21%201.56.31%202.34.31%201.56%200%203.1-.41%204.49-1.21%202.08-1.2%203.57-3.14%204.19-5.46s.3-4.75-.9-6.83Z%22%20style=%22fill:currentColor;stroke-width:0%22/%3E            %3C/svg%3E`});a.addEventListener(%22click%22,()=%3E{a.blur();const%20b=new%20CustomEvent(%22resetplayer.mario%22);document.body.dispatchEvent(b)})}addStyles(a,b){for(const%20c%20in%20b)a.style[c]=b[c]}togglePlatformVisibility(){this.platformsAreVisible=!this.platformsAreVisible;const%20a=this.platformsAreVisible%3F.2:0;this.render.engine.world.bodies.forEach(b=%3E{%22platform%22===b.label%26%26(b.render.opacity=a)})}}class%20d{constructor(a,b){this.player=null;const%20c=.25*window.innerHeight,d=.75*window.innerHeight;a.Events.on(b,%22afterUpdate%22,()=%3E{if(this.player){const%20a=window.scrollY,b=this.player.position.y;if(b-a%3Cc){const%20a=this.player.position.y-c;window.scrollTo({top:a,behavior:%22instant%22})}else%20if(b-a%3Ed){const%20a=this.player.position.y-d;window.scrollTo({top:a,behavior:%22instant%22})}}})}setPlayer(a){this.player=a}}class%20e{shapeOpacity=0;elmsUsedForBodies=[];typeCorrectionsMaps=null;bodyObjAttr=%22data-mario-has-body-obj%22;fontSizeThreshold=36;bodies=[];constructor(a){this.Matter=a.Matter,this.canvasW=a.canvasW,this.canvasH=a.canvasH}createWallsAndGround(){const%20a={isStatic:!0,render:{opacity:this.shapeOpacity}},c={...a,render:{fillStyle:%22%23c84c0c%22,opacity:1}},d=60,e=this.canvasW/2,f=0-32-d,g=this.canvasH-10,h=b(f)+g+d,i=f+.5*h,j=this.canvasW+.5*d,k=this.Matter.Bodies.rectangle(e,f+.5*d,this.canvasW,d,a),l=this.Matter.Bodies.rectangle(e,g+.5*d,this.canvasW,d,c),m=this.Matter.Bodies.rectangle(0-.5*d,i,d,h,a),n=this.Matter.Bodies.rectangle(j,i,d,h,a);return[l,k,m,n]}wrapTextNodeWithSpan(a){const%20b=document.createElement(%22span%22);return%20b.textContent=a.nodeValue,a.replaceWith(b),b}wrapElmTextNodesWithSpans(a,b){a.childNodes.forEach(a=%3E{const%20c=a.nodeType;if(c===Node.TEXT_NODE){const%20c=!!!a.nodeValue.match(/\S/);if(c)return;const%20d=this.wrapTextNodeWithSpan(a);b.push(d)}else%20if(c===Node.ELEMENT_NODE){if(this.elmHasBodyObj(a))return;this.wrapElmTextNodesWithSpans(a,b)}})}createSpansForTextNodes(a){const%20b=[],c=document.querySelectorAll(a);return%20c.forEach(a=%3E{this.elmHasBodyObj(a)||this.wrapElmTextNodesWithSpans(a,b)}),b}createWordSpans(a){const%20b=a.childNodes[0],c=b.nodeValue,d=c.split(%22%20%22),e=d.map(a=%3E{const%20b=document.createElement(%22span%22);return%20b.setAttribute(%22data-mario-char-group%22,%22regular%22),b.textContent=a+%22%20%22,b});return%20b.replaceWith(...e),e}createLineSpan(a){const%20b=document.createElement(%22span%22);return%20b.setAttribute(%22data-mario-line-group%22,%22%22),b.textContent=a,b}createLineSpans(a){const%20b=this.createWordSpans(a),c=[];let%20d=%22%22,e=null;b.forEach(a=%3E{const%20b=a.offsetTop;if(b===e)d+=a.textContent;else{if(d){const%20a=this.createLineSpan(d);c.push(a)}d=a.textContent,e=b}});const%20f=this.createLineSpan(d);return%20c.push(f),a.replaceChildren(...c),c}createCharacterGroupSpans(a){const%20b=a.childNodes[0],c=b.nodeValue;let%20d=%22[A-Zbdfhklt']+%22;let%20e=%22[^A-Z^b^d^f^h^k^l^t^g^j^p^q^y]+%22;!0%26%26(d=%22[A-Z]+%22,e=%22[^A-Z^g^j^p^q^y]+%22);const%20f=new%20RegExp(`(${d})|(${%22[gjpqy]+%22})|(${e})`,%22g%22),g=c.match(f),h=new%20RegExp(d),i=/[gjpqy]+/,j=g.map(a=%3E{let%20b=%22regular%22;a.match(h)%3Fb=%22asc%22:a.match(i)%26%26(b=%22desc%22);const%20c=document.createElement(%22span%22);return%20c.setAttribute(%22data-mario-char-group%22,b),c.textContent=a,c});return%20b.replaceWith(...j),j}getTypeCorrections(a,b){const%20c=a.getAttribute(%22data-mario-char-group%22)||%22regular%22,d=b[%22font-family%22]%3F.split(%22,%22)[0]||%22%22,e=d.toLowerCase(),f=this.typeCorrectionsMaps[e]||this.typeCorrectionsMaps.default,g=f[c],h=parseFloat(b[%22font-size%22]),i=h*g.top,j=h*g.height;return{top:i,height:j}}getChamferCorrection(a,b){const%20c=Math.log2(a/b),d=Math.round(76*a/1e3/3.5**c);return%20d}getTotalChamferCorrection(a,b,c){const%20d=[],e=[];for(const%20f%20of%20c)d.push(this.getChamferCorrection(a,f)),e.push(this.getChamferCorrection(b,f));const%20f=d[0]-d[1]-d[2]+d[3],g=e[0]+e[1]-e[2]-e[3];return{dx:f,dy:g}}createBodyForElm(a){const%20b=getComputedStyle(a),c=[b[%22border-top-left-radius%22],b[%22border-top-right-radius%22],b[%22border-bottom-right-radius%22],b[%22border-bottom-left-radius%22]],d=c.map(a=%3EparseInt(a,10)),e={isStatic:!0,chamfer:{radius:d},render:{fillStyle:%22green%22,opacity:this.shapeOpacity},label:%22platform%22},{width:f,height:g,top:h,left:i}=a.getBoundingClientRect();let%20j=0,k=0,l={dx:0,dy:0};if(%220,0,0,0%22!==d.join(%22,%22)%26%26(l=this.getTotalChamferCorrection(f,g,d)),%22SPAN%22===a.tagName){const%20c=this.getTypeCorrections(a,b);j=c.top,k=c.height}const%20m=h+j,n=g+k,o=i+f/2+l.dx,p=m+n/2+l.dy,q=this.Matter.Bodies.rectangle(o,p,f,n,e);return%20this.addBodyAttr(a),q}elmHasBodyObj(a){const%20b=`[${this.bodyObjAttr}]`;return!!(a.hasAttribute(this.bodyObjAttr)||a.closest(b)||a.hasAttribute(%22data-mario-ignore%22)||a.closest(%22[data-mario-ignore]%22))}addBodyAttr(a){a.setAttribute(this.bodyObjAttr,%22%22)}addTextLevelBodies(a){const%20b=this.createSpansForTextNodes(a);return%20b.forEach(a=%3E{const%20b=parseFloat(getComputedStyle(a).fontSize);if(b%3E=this.fontSizeThreshold){const%20b=this.createCharacterGroupSpans(a);b.forEach(a=%3E{this.bodies.push(this.createBodyForElm(a))})}else{const%20b=this.createLineSpans(a);b.forEach(a=%3E{this.bodies.push(this.createBodyForElm(a))})}}),b}checkParentWithBorderRadius(a,b){b=b||a;let%20c=b;const%20d=a.parentNode;if(d.offsetWidth%3C=a.offsetWidth||d.offsetHeight%3C=a.offsetHeight){const%20a=getComputedStyle(d);if(%22hidden%22===a.overflow){const%20b=a.borderRadius,e=b.split(%22%20%22);let%20f=!1;for(const%20a%20of%20e)if(parseInt(a)%3E=50){f=!0;break}f%26%26(c=d)}c===b%26%26d!==document.body%26%26(c=this.checkParentWithBorderRadius(d,b))}return%20c}addBodiesForElements(a){a.forEach(a=%3E{if(this.elmHasBodyObj(a))return;let%20b=a;%22IMG%22===a.tagName%26%26(b=this.checkParentWithBorderRadius(a)),this.bodies.push(this.createBodyForElm(b))})}addBlockLevelBodies(a){const%20b=document.querySelectorAll(a);this.addBodiesForElements(b)}getBorderWidth(a,b){const%20c=a[b];return%22%22===c%3F1:parseInt(a[b].split(%22%20%22)[0],10)}addElementsWithBorder(a,b){b.forEach(b=%3E{if(b.nodeType!==Node.ELEMENT_NODE||this.elmHasBodyObj(b))return;const%20c=b,d=getComputedStyle(c);let%20e=!0;const%20f=[%22border%22,%22borderTop%22,%22borderRight%22,%22borderBottom%22,%22borderLeft%22];for(const%20a%20of%20f)if(0===this.getBorderWidth(d,a)){e=!1;break}e%3Fa.push(c):this.addElementsWithBorder(a,c.childNodes)})}addBorderedBodies(){const%20a=[];this.addElementsWithBorder(a,document.body.childNodes),this.addBodiesForElements(a)}createBodiesForHtmlElements(){return%20this.typeCorrectionsMaps=new%20j,this.addBorderedBodies(),this.addBlockLevelBodies(%22.block-level,%20audio,%20button,%20canvas,%20embed,%20iframe,%20image,%20img,%20input,%20object,%20picture,%20progress,%20select,%20svg,%20textarea,%20video%22),this.addTextLevelBodies(%22body%22),this.bodies}}const%20f={stand:%22stand%22,jump:%22jump%22,walk:%22walk%22,fall:%22fall%22,brake:%22brake%22};class%20g{isInTheAir=!0;playerBody=null;playerSpriteBody=null;lastDir=1;walkCycleIdx=0;walkUpdateIdx=0;walkUpdateEveryNth=5;accelerationX=.25;maxSpeedX=5;maxSpeedY=12;totalJumpForce=0;maxJumpForce=.045;keyLeftIsDown=!1;keyRightIsDown=!1;keySpaceIsDown=!1;keySpaceWasUpAfterJumpStart=!1;constructor(a,b,c){this.engine=a,this.render=b,this.walkCycleLength=c.walk.l.length,this.SPRITES=c,this.createBody(),this.initCollisionDetection(),this.initKeyboardControls(),Matter.Events.on(a,%22afterUpdate%22,()=%3E{this.updateHandler()})}createPlayerSpriteBody(a,b,c){const%20d={label:%22playerShape%22,render:{sprite:{texture:this.SPRITES.stand.r,xScale:1,yScale:1}}},e=Matter.Bodies.rectangle(a,b,c,c,d);return%20e}createFloorSensorBody(a,b,c){const%20d=10,e=Matter.Bodies.rectangle(a,b+c/2-d/2,c-4,d,{label:%22floorSensor%22,render:{fillStyle:%22transparent%22}});return%20e}createBody(){const%20a=this.render.options.width/2-250,b=17;this.playerSpriteBody=this.createPlayerSpriteBody(a,b,32);const%20c=this.createFloorSensorBody(a,b,32);this.playerBody=Matter.Body.create({label:%22player%22,parts:[this.playerSpriteBody,c],restitution:0,friction:0,frictionAir:0,inertia:1/0,mass:1})}checkInTheAir(a){a.pairs.forEach(a=%3E{let%20b;%22floorSensor%22===a.bodyA.label%3Fb=a.bodyA:%22floorSensor%22===a.bodyB.label%26%26(b=a.bodyB),b%26%26(this.removeActiveCollisionDetection(),this.isInTheAir=!1,this.totalJumpForce=this.maxJumpForce)})}removeActiveCollisionDetection(){Matter.Events.off(this.engine,%22collisionActive%22)}addActiveCollisionDetection(){Matter.Events.on(this.engine,%22collisionActive%22,a=%3E{this.checkInTheAir(a)})}initCollisionDetection(){this.addActiveCollisionDetection(),Matter.Events.on(this.engine,%22collisionEnd%22,()=%3E{this.isInTheAir=!0,this.addActiveCollisionDetection()})}getXSpeed(){return%20Matter.Body.getVelocity(this.playerBody).x}setXSpeed(b){const%20c=Matter.Body.getVelocity(this.playerBody).y,d=a(c,this.maxSpeedY);Matter.Body.setVelocity(this.playerBody,{x:b,y:d})}applyForceUp(a){const%20c=this.playerBody;Matter.Body.applyForce(c,{x:c.position.x,y:c.position.y},{x:0,y:-1*a})}jump(){if(!this.isInTheAir){const%20a=.03;this.applyForceUp(a),this.totalJumpForce=a,this.keySpaceWasUpAfterJumpStart=!1}}moveX(a){this.setXSpeed(10*a)}updateSpeedX(){var%20c=Math.max;let%20d=0;const%20e=this.getXSpeed();this.keyLeftIsDown%3F(d=e-this.accelerationX,d=c(d,-1*this.maxSpeedX)):this.keyRightIsDown%3F(d=e+this.accelerationX,d=a(d,this.maxSpeedX)):0%3Ee%3F(d=e+this.accelerationX,d=a(d,0)):0%3Ce%26%26(d=e-this.accelerationX,d=c(d,0)),this.setXSpeed(d),0!==d%26%26(this.lastDir=d/b(d))}updateForceY(){if(this.keySpaceIsDown%26%26this.isInTheAir%26%26!this.keySpaceWasUpAfterJumpStart){const%20a=this.maxJumpForce-this.totalJumpForce,b=5e-4;a%3E=b%26%26(this.applyForceUp(b),this.totalJumpForce+=b)}}initKeyboardControls(){document.body.addEventListener(%22keydown%22,a=%3E{const%20b=a.code;%22Space%22===b%3F(a.preventDefault(),this.keySpaceIsDown=!0,this.jump()):%22ArrowLeft%22===b%3Fthis.keyLeftIsDown=!0:%22ArrowRight%22===b%3Fthis.keyRightIsDown=!0:void%200}),document.body.addEventListener(%22keyup%22,a=%3E{const%20b=a.code;%22Space%22===b%3F(this.keySpaceIsDown=!1,this.keySpaceWasUpAfterJumpStart=!0):%22ArrowLeft%22===b%3Fthis.keyLeftIsDown=!1:%22ArrowRight%22===b%3Fthis.keyRightIsDown=!1:void%200})}getWalkTexture(a){if(0%3Ca%26%26this.keyLeftIsDown)return%20this.SPRITES.brake.l;if(0%3Ea%26%26this.keyRightIsDown)return%20this.SPRITES.brake.r;0===this.walkUpdateIdx%26%26(this.walkCycleIdx++,this.walkCycleIdx===this.walkCycleLength%26%26(this.walkCycleIdx=0)),this.walkUpdateIdx++,this.walkUpdateIdx===this.walkUpdateEveryNth%26%26(this.walkUpdateIdx=0);const%20b=this.mapSpeedToLetter(a);return%20this.SPRITES.walk[b][this.walkCycleIdx]}mapSpeedToLetter(a){return%200%3Ea%3F%22l%22:%22r%22}setSprite(a,b){const%20c=this.playerSpriteBody.render.sprite.texture;let%20d;const%20e=this.mapSpeedToLetter(this.lastDir);a===f.stand%3Fd=this.SPRITES.stand[e]:a===f.jump%3Fd=this.SPRITES.jump[e]:a===f.fall%3Fd=this.SPRITES.fall:a===f.walk%3Fd=this.getWalkTexture(b):void%200;d%26%26d!==c%26%26(this.playerSpriteBody.render.sprite.texture=d)}updateSprite(){const%20a=this.getXSpeed();this.isInTheAir%3Fthis.setSprite(f.jump,a):0===a%3Fthis.setSprite(f.stand,a):this.setSprite(f.walk,a)}updateHandler(){this.updateSpeedX(),this.updateForceY(),this.updateSprite()}}class%20h{playerSprites=[%22r-stand.png%22,%22r-1.png%22,%22r-2.png%22,%22r-3.png%22,%22r-jump.png%22,%22r-brake.png%22,%22l-stand.png%22,%22l-1.png%22,%22l-2.png%22,%22l-3.png%22,%22l-jump.png%22,%22l-brake.png%22,%22fall.png%22];spriteImages=[...this.playerSprites];constructor(a){this.baseUrl=a,this.preloadSprites(),this.SPRITES=this.createActionSprites()}p(a){return%20this.baseUrl+%22mario/%22+a}preloadSprites(){if(!document.getElementById(%22sprite-preloader%22)){const%20a=document.createElement(%22div%22);a.id=%22sprite-preloader%22,a.style.display=%22none%22,a.setAttribute(%22data-mario-ignore%22,%22%22),this.spriteImages.forEach(b=%3E{const%20c=document.createElement(%22img%22);c.src=this.p(b),a.appendChild(c)}),document.body.appendChild(a)}}createActionSprites(){return{stand:{l:this.p(%22l-stand.png%22),r:this.p(%22r-stand.png%22)},jump:{l:this.p(%22l-jump.png%22),r:this.p(%22r-jump.png%22)},brake:{l:this.p(%22l-brake.png%22),r:this.p(%22r-brake.png%22)},walk:{l:[this.p(%22l-1.png%22),this.p(%22l-2.png%22),this.p(%22l-3.png%22)],r:[this.p(%22r-1.png%22),this.p(%22r-2.png%22),this.p(%22r-3.png%22)]},fall:this.p(%22fall.png%22)}}}class%20i{constructor(a){const%20b=Object.assign({totalHeight:44,ascTop:8,ascHeight:29,regularTop:16,regularHeight:21,descHeight:29},a),c={top:b.regularTop/b.totalHeight,height:(b.regularHeight-b.totalHeight)/b.totalHeight},d={top:b.ascTop/b.totalHeight,height:(b.ascHeight-b.totalHeight)/b.totalHeight},e={top:b.regularTop/b.totalHeight,height:(b.descHeight-b.totalHeight)/b.totalHeight};return{regular:c,asc:d,desc:e}}}class%20j{configs={default:null,helveticaneue:{totalHeight:48,ascTop:0,ascHeight:34,regularTop:9,regularHeight:25,descHeight:34}};constructor(){const%20a={};for(const%20b%20in%20this.configs){const%20c=this.configs[b];a[b]=new%20i(c)}return%20a}}(()=%3E{let%20a,b,f,i,j,k,l;const%20m=%22mario-canvas-container%22;let%20n,o,p=0,q=0;const%20r=()=%3E{({Composite:a,Engine:b,Render:f,Runner:i}=Matter)},s=()=%3E{k=f.create({element:l,engine:j,options:{width:p,height:q,wireframes:!1,background:%22transparent%22}}),l.querySelector(%22canvas%22).style.pointerEvents=%22none%22},t=b=%3E{const%20c={Matter,canvasW:p,canvasH:q},f=new%20e(c),g=f.createWallsAndGround(),h=f.createBodiesForHtmlElements();o=new%20d(Matter,j),u(b);const%20i=[...g,...h];a.add(j.world,i)},u=b=%3E{n=new%20g(j,k,b).playerBody,a.add(j.world,n),o.setPlayer(n),document.body.addEventListener(%22resetplayer.mario%22,()=%3E{a.remove(j.world,n),u(b)},{once:!0})},v=()=%3E{const%20a=document.body.parentNode;a.style.minHeight=%22100%25%22,a.style.height=%22auto%22,document.body.style.minHeight=%22100dvh%22,document.body.style.height=%22auto%22},w=()=%3E{const%20a=document.createElement(%22style%22);document.head.appendChild(a);const%20b=a.sheet;b.insertRule(`%23${m}%20canvas%20{%20display:%20block;%20}`)},x=()=%3E{p=document.body.offsetWidth,q=document.body.offsetHeight,l=document.createElement(%22div%22),l.id=m,l.setAttribute(%22data-mario-ignore%22,%22%22);const%20a={position:%22absolute%22,top:0,left:0,height:0,width:0,zIndex:1e16};for(const%20b%20in%20a)l.style[b]=a[b];document.body.appendChild(l)},y=()=%3E{v(),w(),x()},z=a=%3E{y(),j=b.create();const%20c=new%20h(a);s(),t(c.SPRITES);const%20d=i.create();i.run(d,j),f.run(k)},A=()=%3E{Matter=null,document.getElementById(m)%3F.remove(),D()},B=()=%3E{document.body.addEventListener(%22reset.easterEggGame%22,A,{once:!0})},C=()=%3E{const%20a=new%20Promise((a,b)=%3E{const%20c=%22https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js%22,d=document.createElement(%22script%22);d.src=%22https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js%22,d.addEventListener(%22load%22,a),d.addEventListener(%22error%22,a=%3Eb(a)),document.body.appendChild(d)});return%20a},D=()=%3E{const%20a=%22https://jaron.nl/play/mario/sprites/%22;C().then(()=%3E{window.scrollTo({top:0,behavior:%22instant%22}),r(),z(a),B(),new%20c(k)}).catch(a=%3E{console.log(%22can%20not%20load%22,a)})};console.clear(),D()})()}();">Drop Mario!</a>
+					Add Mario to a website, and move him with left/right/space
+			</p>
+		</div>
 
-		<h2>AEM: Toggle between Author and View as published</h2>
-		<P>
-			<a href='javascript:void function(){let a=document.location.href;const b=-1<a.indexOf("editor.html");b%3F(a=a.replace("editor.html/",""),a+="%3Fwcmmode=disabled"):(a=a.replace("/content/","/editor.html/content/"),a=a.split("%3F")[0]),document.location.href=a}();'>Author ⇆ Publish</a>
-			Toggle between the Author and View as published views in AEM
-		</p>
+		<div class="bmk" id="bootstrap-grid-overlay">
+			<a href="#bootstrap-grid-overlay"></a>
+			<h2>Toggle Bootstrap grid overlay</h2>
+			<p>
+				<a
+					href='javascript:void%20function(){const%20a=%22bootstrap-grid-overlay%22;let%20b=document.getElementById(a);b%3Fb.remove():(b=document.createElement(%22div%22),b.setAttribute(%22id%22,a),b.innerHTML=%22%3Cstyle%3E\n%20%20.grid-overlay%20{\n%20%20%20%20position:%20fixed;\n%20%20inset:%200;\n%20%20z-index:%2010000;\n%20%20pointer-events:%20none;\n}\n%20%20.grid-overlay%20.container,\n%20%20.grid-overlay%20.row,\n%20%20.grid-overlay%20.col-1,\n%20%20.grid-overlay%20.content%20{\n%20%20%20%20height:%20100%25;\n}\n.grid-overlay%20.col-1%20{\n%20%20%20%20border:%201px%20dotted%20rgba(255,0,0,0.3);\n}\n%20%20.grid-overlay%20.content%20{\n%20%20%20%20background:%20rgba(255,0,0,0.1);\n}\n%3C/style%3E\n%3Cdiv%20class=\%22grid-overlay\%22%3E\n%20%20%3Cdiv%20class=\%22container\%22%3E\n%20%20%20%20%3Cdiv%20class=\%22row\%22%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%20%20%3Cdiv%20class=\%22col-1\%22%3E%3Cdiv%20class=\%22content\%22%3E%3C/div%3E%3C/div%3E\n%20%20%20%20%3C/div%3E\n%20%20%3C/div%3E\n%3C/div%3E%22,document.body.appendChild(b))}();'>Bootstrap
+					grid overlay</a>
+				On page with bootstrap grid, toggle an overlay grid on body
+			</p>
+		</div>
 
-		<h2>Disable data-dm clicks</h2>
-		<P>
-			<a href='javascript:void%20function(){let%20a=0;Array.from(document.querySelectorAll(%22[data-dm]%22)).forEach(function(b){a++,b.addEventListener(%22click%22,function(a){a.preventDefault()})}),console.log(%22click%20disabled%20on%20%22+a+%22%20element(s)%20with%20attribute%20\%22%22+%22data-dm%22+%22\%22%22)}();'>Disable data-dm clicks</a>
-			Disable clicks on alements with <code>data-dm</code>-attribute for easy testing
-		</p>
+		<div class="bmk" id="positioning-context-parent">
+			<a href="#positioning-context-parent"></a>
+			<h2>Positioning context parent</h2>
+			<P>
+				<a
+					href='javascript:void%20function(){const%20a=window.prompt(%22Enter%20selector%20for%20the%20element%20whose%20context%20parent%20jou%20want%20to%20find:%22),b=document.querySelector(a);if(b){let%20a=b.parentElement,c=null;for(;a%26%26!c;){const%20b=window.getComputedStyle(a).position;%22static%22!==b%26%26(c=a),a=a.parentElement}c=c||document.body,console.log(%22contextParent:%22,c)}}();'>Positioning context parent</a>
+					Log an element's positioning context parent to the console by specifying an element selector (i.e. for an element with an other position than static, find which element it's positioned relative to) 
+			</p>
+		</div>
 
-		<h2>Add issue numbers to tfs cards</h2>
-		<P>
-			<a href='javascript:void%20function(){const%20a=Array.from(document.querySelectorAll(%22.tbTile%22));a.forEach(a=%3E{const%20b=a.id,c=b.replace(%22tile-%22,%22%22),d=a.querySelector(%22.tbTileContent%22),e=a.querySelector(%22.id-title-container%22),f=document.createElement(%22div%22);f.textContent=c,e.appendChild(f),d.setAttribute(%22title%22,c)})}();'>TFS issue nrs</a>
-			Add issue numbers to tfs cards
-		</p>
+		<div class="bmk" id="randomize-url">
+			<a href="#randomize-url"></a>
+			<h2>Randomize url</h2>
+			<p>
+				<a
+					href='javascript:void function(){var i=document.location.href,o=i.indexOf("%3F"),n=i.indexOf("%23"),t="",a=[];if(n>-1){var e=i.split("%23");i=e[0],t="%23"+e[1]}o>-1%26%26(a=i.split("%3F"),i=a[0],a=a[1].split("%26")),a.forEach(function(i,o){"randomize"===i.split("=")[0]%26%26a.splice(o,1)}),a.push("randomize="+Math.floor(1e4*Math.random())),i+="%3F"+a.join("%26")+t,window.location.href=i}();'>randomizeUrl</a>
+				Add random parameter to query string (or change it)
+			</p>
+		</div>
 
-		
-
-		<h2>Fill form with random content</h2>
-		<P>
-			<a href="javascript:(function(){var%20inputs=document.querySelectorAll('input');var%20contains=function(str,what){return(str.indexOf(what)%3E%20-1);};for(var%20i=0;len=inputs.length,i%3Clen;i++){var%20input=inputs[i];var%20tp=input.type;if(tp%20!=='hidden'%20%26%26%20tp%20!='submit'){var%20nm=input.name.toLowerCase(),val;if(tp==='email'%20||%20contains(nm,'mail')){val='iemand%40aghjdkaghjakghjkahgjkahkg.nl';}else%20if(contains(nm,'postcode')){val='1234AB';}else%20if(contains(nm,'phone')||%20contains(nm,'mobile')){val='0612345678';}else%20if(nm.indexOf('number')%3E%20-1){val=12;}else%20if(tp==='password'){val='Aa-12-Bbcc';}else{val='ietsiets';}input.value=val;}}})();">formRandomizer</a>
-			Fill all form fields with a random value (with some context awareness like email, numbers).
-		</p>
-
-		
+		<div class="bmk" id="randomize-form">
+			<a href="#randomize-form"></a>
+			<h2>Fill form with random content</h2>
+			<P>
+				<a
+					href="javascript:(function(){var%20inputs=document.querySelectorAll('input');var%20contains=function(str,what){return(str.indexOf(what)%3E%20-1);};for(var%20i=0;len=inputs.length,i%3Clen;i++){var%20input=inputs[i];var%20tp=input.type;if(tp%20!=='hidden'%20%26%26%20tp%20!='submit'){var%20nm=input.name.toLowerCase(),val;if(tp==='email'%20||%20contains(nm,'mail')){val='iemand%40aghjdkaghjakghjkahgjkahkg.nl';}else%20if(contains(nm,'postcode')){val='1234AB';}else%20if(contains(nm,'phone')||%20contains(nm,'mobile')){val='0612345678';}else%20if(nm.indexOf('number')%3E%20-1){val=12;}else%20if(tp==='password'){val='Aa-12-Bbcc';}else{val='ietsiets';}input.value=val;}}})();">formRandomizer</a>
+				Fill all form fields with a random value (with some context awareness like email, numbers).
+			</p>
+		</div>
 
 	</div><!-- /.wrapper -->
 
-	<!--[if (gte IE 9)|!(IE)]><!-->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-	<!--<![endif]-->
-    <!--[if lte IE 8 ]>
-	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.3/jquery.min.js"></script>
-    <![endif]-->
-	<script>
-		jQuery(document).ready(function() {
-		});
-	</script>
+	<script src="viewport-indicator/viewport-indicator-generator.js"></script>
+
 </body>
+
 </html>
