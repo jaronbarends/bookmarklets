@@ -1,36 +1,27 @@
 <!doctype html>
 <html lang="nl-nl">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
+
 	<title></title>
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
 
 	<h2>QR code for current page</h2>
 	<P>
-		<a href="javascript:void%20function(){var%20e=document.createElement(%22div%22),t=function(){var%20t=%22https://chart.googleapis.com/chart%3Fchs=250x250%26cht=qr%26chl=%22+encodeURIComponent(document.location.href),n=e.style,o=document.createElement(%22img%22);o.src=t,n.position=%22fixed%22,n.zIndex=1e6,n.width=%22100%25%22,n.height=%22100%25%22,n.top=0,n.left=0,n.textAlign=%22center%22,n.backgroundColor=%22rgba(0,0,0,0.9)%22,o.style.marginTop=%22100px%22,o.style.width=%22auto%22,o.style.height=%22auto%22,e.appendChild(o),document.body.appendChild(e)},n=function(){document.body.removeChild(e)},o=function(e){27===e.keyCode%26%26n()},d=function(){t(),e.addEventListener(%22click%22,n),window.addEventListener(%22keyup%22,o)};d()}();">QR code</a>
+		<!-- <a href="javascript:void%20function(){var%20e=document.createElement(%22div%22),t=function(){var%20t=%22https://chart.googleapis.com/chart%3Fchs=250x250%26cht=qr%26chl=%22+encodeURIComponent(document.location.href),n=e.style,o=document.createElement(%22img%22);o.src=t,n.position=%22fixed%22,n.zIndex=1e6,n.width=%22100%25%22,n.height=%22100%25%22,n.top=0,n.left=0,n.textAlign=%22center%22,n.backgroundColor=%22rgba(0,0,0,0.9)%22,o.style.marginTop=%22100px%22,o.style.width=%22auto%22,o.style.height=%22auto%22,e.appendChild(o),document.body.appendChild(e)},n=function(){document.body.removeChild(e)},o=function(e){27===e.keyCode%26%26n()},d=function(){t(),e.addEventListener(%22click%22,n),window.addEventListener(%22keyup%22,o)};d()}();">QR code</a> -->
+		<button type="button" onclick="showOverlay()">Show QR code</button>
 	</p>
 	<p>
 		Shows a lightbox with a QR code for the current page's url. ([Esc] closes the lightbox)
 	</p>
 
-	
-	
-	<script type="text/javascript">
-		/*<![CDATA[*/
-		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-		<script type="text/javascript">
-		var pageTracker = _gat._getTracker("UA-4717105-1");
-		pageTracker._initData();
-		pageTracker._trackPageview();
-		/*]]>*/
-	</script>
-
+	<script src='qrcode.js'></script>
 </body>
+
 </html>
